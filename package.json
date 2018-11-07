@@ -27,5 +27,12 @@
     "web3": "^0.20.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.1"
+  },
+  "dependencies": {
+    "knex": "^0.15.2",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.3",
+    "oracle": "^0.4.1",
+    "pg": "^7.6.0"
   }
 }
