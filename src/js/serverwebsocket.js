@@ -10,9 +10,10 @@ voto.voter = 12345;
 // formato socket candidato
 var candidate = new Object();
 candidate.class = "add_candidate"
-candidate.name = "Gabs";
-candidate.partie = "zehbudega"
-candidate.id = 12347
+candidate.candidate = "gabstestepqp";
+candidate.partie = "PartidoDoGabs"
+candidate.idt = 12347
+candidate.votes = 0
 
 const wss = new WebSocket.Server({ port: 8080 },function (){
 	console.log('Server porta 8080');

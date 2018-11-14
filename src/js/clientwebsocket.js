@@ -56,13 +56,18 @@ ws.on('open', function open() {
 });
 
 ws.on('message', function incoming(data) {
-  console.log(data);
   message = JSON.parse(data);
-  switch(message.class){
-    case 'add_candidate':
-      insert(message.candidate, message.partie, message.id, 0);
-
-    case'voto':
-      update(message.candidate, 1);
+  if (message.class === 'add_candidate'){
+    insert(message.candidate, message.partie, message.idt, message.votes);
+  }
+  else{
+    let vote_value = 0
+    selectResult = knex.select("Votes").where({Name:message.candidate}).from("Candidates")
+    selectResult.then(function (rows) {
+        voto = JSON.stringify(rows)
+        voto = voto.slice(1, voto.length - 1)
+        vote_value = JSON.parse(voto).Votes +1;
+        update(message.candidate, vote_value)  
+    })
   }
 });
